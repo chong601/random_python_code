@@ -27,12 +27,12 @@ def get_language(name):
 # Find the index number given the name to be searched.
 # This search is not case-sensitive.
 def get_index(name):
-    try:
-        # This is inefficicent in general, but may be the best way to use it for the time being.
-        lowercaselist = [language.lower() for language in languages]
-        return lowercaselist.index(name.lower())
-    except ValueError:
-        # Return a None when it's not found
+    # This is inefficicent in general, but may be the best way to use it for the time being.
+    lowercaselist = [language.lower() for language in languages]
+    count = lowercaselist.count(name.lower())
+    if count > 0:
+        return lowercaselist.index(name.lower)
+    else:
         return None
 
 # Language class that handles request for /language route
